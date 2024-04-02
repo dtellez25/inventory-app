@@ -56,7 +56,7 @@ class _QRScannerState extends State<QRScanner> {
         iconTheme: const IconThemeData(color: Colors.black87),
         centerTitle: true,
         title: const Text(
-          "QR Scanner",
+          "Inventory Scanner",
           style: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
@@ -74,7 +74,7 @@ class _QRScannerState extends State<QRScanner> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Coloque el codigo QR en el area",
+                    "Place the QR code in the area",
                     style: TextStyle(
                       color: Colors.black87,
                       fontSize: 16.3,
@@ -86,7 +86,7 @@ class _QRScannerState extends State<QRScanner> {
                     height: 10,
                   ),
                   Text(
-                    "El escaneo iniciara automaticamente",
+                    "Scanning will start automatically",
                     style: TextStyle(
                       fontSize: 13.5,
                       color: Colors.black87,
@@ -100,18 +100,11 @@ class _QRScannerState extends State<QRScanner> {
               child: Stack(
                 children: [
                   MobileScanner(
-                    controller:
-                        controller, // Utiliza el controlador de MobileScannerController
-                    allowDuplicates:
-                        true, // Permite escanear el mismo código QR múltiples veces
+                    controller: controller,
+                    allowDuplicates: true,
                     onDetect: (barcode, args) async {
-                      // Cuando se detecta un código QR, se ejecuta esta función de devolución de llamada
-
                       if (!isScanCompleted) {
-                        // Verifica si el escaneo ya se ha completado
-                        String code = barcode.rawValue ??
-                            '---'; // Obtiene el valor del código QR escaneado
-
+                        String code = barcode.rawValue ?? '---';
                         isScanCompleted = true;
 
                         Navigator.push(
@@ -136,7 +129,7 @@ class _QRScannerState extends State<QRScanner> {
               child: Container(
                 alignment: Alignment.center,
                 child: const Text(
-                  "Desarrollado por JuegaOK",
+                  "Copyright by Ctrl-alt-Elite",
                   style: TextStyle(
                     color: Colors.black87,
                     fontSize: 14,
