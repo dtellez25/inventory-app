@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inventory/user/qrScannerOverlay.dart';
+import 'package:inventory/qrScannerOverlay.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:inventory/resultScreen.dart';
 
@@ -56,7 +56,7 @@ class _QRScannerState extends State<QRScanner> {
         iconTheme: const IconThemeData(color: Colors.black87),
         centerTitle: true,
         title: const Text(
-          "Inventory Scanner",
+          "Item Scanner",
           style: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
@@ -128,14 +128,6 @@ class _QRScannerState extends State<QRScanner> {
             Expanded(
               child: Container(
                 alignment: Alignment.center,
-                child: const Text(
-                  "Copyright by Ctrl-alt-Elite",
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 14,
-                    letterSpacing: 1,
-                  ),
-                ),
               ),
             ),
           ],
