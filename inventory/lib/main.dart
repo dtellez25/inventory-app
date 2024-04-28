@@ -1,44 +1,150 @@
 import 'package:flutter/material.dart';
-import 'package:inventory/home.dart';
+import 'package:inventory/userHome.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Inventory',
+      title: 'Scanner App Login',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
+        buttonTheme: ButtonThemeData(buttonColor: Colors.blueAccent),
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          button: TextStyle(color: Colors.white),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          contentPadding:
+              EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+          border: OutlineInputBorder(),
+          filled: true,
+          fillColor: Colors.white70,
+        ),
       ),
-      home: const Home(),
+      home: LoginPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
+class LoginPage extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginPageState extends State<LoginPage> {
+  bool _isLoginAdminSelected = false;
+
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _showAdminLogin() {
+    setState(() {
+      _isLoginAdminSelected = true;
+    });
+  }
+
+  void _loginAsAdmin() {
+    final String username = _usernameController.text;
+    final String password = _passwordController.text;
+    // Implement your authentication logic here
+    print('Admin logged in with username: $username and password: $password');
+    // Navigate to admin page
+  }
+
+  void _loginAsUser() {
+    // Assuming successful login logic here
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Home()),
+    );
+    //print('User logged in and navigated to scanner');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+      appBar: AppBar(
+        title: Text('Login Page'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child:
+            _isLoginAdminSelected ? _buildAdminLogin() : _buildInitialButtons(),
+      ),
+    );
+  }
+
+  Widget _buildInitialButtons() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: _showAdminLogin,
+          style: ElevatedButton.styleFrom(minimumSize: Size(200, 50)),
+          child: Text('Login as Admin'),
         ),
-        body: const Center());
+        SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: _loginAsUser,
+          style: ElevatedButton.styleFrom(minimumSize: Size(200, 50)),
+          child: Text('Login as User'),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAdminLogin() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: 300, // Adjust width to make the box smaller or larger
+          child: TextField(
+            controller: _usernameController,
+            decoration: InputDecoration(
+              labelText: 'Username',
+              prefixIcon: Icon(Icons.person),
+            ),
+          ),
+        ),
+        SizedBox(height: 10),
+        Container(
+          width: 300, // Adjust width to make the box smaller or larger
+          child: TextField(
+            controller: _passwordController,
+            decoration: InputDecoration(
+              labelText: 'Password',
+              prefixIcon: Icon(Icons.lock),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  Icons.visibility,
+                ),
+                onPressed: () {
+                  // Toggle password visibility
+                },
+              ),
+            ),
+            obscureText: true,
+          ),
+        ),
+        SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: _loginAsAdmin,
+          style: ElevatedButton.styleFrom(minimumSize: Size(200, 50)),
+          child: Text('Submit'),
+        ),
+        SizedBox(height: 20),
+        TextButton(
+          onPressed: () {
+            setState(() {
+              _isLoginAdminSelected = false;
+            });
+          },
+          child: Text('Back'),
+        ),
+      ],
+    );
   }
 }
