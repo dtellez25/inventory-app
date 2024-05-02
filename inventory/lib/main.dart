@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:inventory/userHome.dart';
+import 'package:inventory/user/userHome.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Scanner App Login',
+      title: 'Login',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        buttonTheme: ButtonThemeData(buttonColor: Colors.blueAccent),
-        textTheme: TextTheme(
+        buttonTheme: const ButtonThemeData(buttonColor: Colors.blueAccent),
+        textTheme: const TextTheme(
           headline1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
           button: TextStyle(color: Colors.white),
         ),
-        inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: const InputDecorationTheme(
           contentPadding:
               EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           border: OutlineInputBorder(),
