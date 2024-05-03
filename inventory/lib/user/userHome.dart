@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/qrScanner.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class userHome extends StatefulWidget {
+  const userHome({super.key});
 
   @override
-  State<Home> createState() => _MyWidgetState();
+  State<userHome> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<Home> {
+class _MyWidgetState extends State<userHome> {
   int currentIndex = 0;
 
   List<Widget> screens = [
@@ -19,7 +19,7 @@ class _MyWidgetState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Food & Stuff"),
+        title: const Text("Food N Stuff"),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),

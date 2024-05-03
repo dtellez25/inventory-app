@@ -27,6 +27,8 @@ class _QRScannerState extends State<QRScanner> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: () {
