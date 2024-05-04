@@ -1,16 +1,145 @@
-# inventory
+# Food Pantry Inventory Scanner
 
-A new Flutter project.
+## Team Members
+- Cordelia Campbell
+- Shaochen Huang
+- Dago Tellez
+- Ibsa Tassew Geleta
+- Jeff Cui
+- Myri Ayala
 
-## Getting Started
+## Point of Contact for the TC'S Food Pantry
+Hayley Berliner
 
-This project is a starting point for a Flutter application.
+## Project Overview
+Our project aims to develop a simple inventory management system tailored for Trinity College Food Pantry, addressing the unique challenges faced by the organization in manually tracking and managing its inventory of donated food and hygiene items. By offering a simple solution, our system will enable rapid updates to the inventory, empowering administrators to promptly replenish stock levels as needed.
 
-A few resources to get you started if this is your first Flutter project:
+## Objectives
+### Primary Goal
+Develop a user-friendly inventory scanner to streamline the process of monitoring inventory levels and facilitating prompt restocking as required.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Secondary Goals
+TBD
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## User Stories
+### Myri
+#### To be completed:
+As a Food Pantry Coordinator at Trinity, I want to automate inventory updates, so that it reduces the time required from our student employees for manual tracking. I would like to be able to add how many items I’ve added to the stock and would like the student to be able to scan the QR code of the item and tell how many items were taken.
+
+#### Aspire to accomplish:
+Add a new section in the web application that will allow users to donate items by accessing the Amazon Wishlist. Users can select the items they want to donate, and the destination details (name, location, box number, or Amazon Locker) will be automatically filled in. The email address of the manager will also be included so that a confirmation can be sent.
+
+## Functional Requirements
+### Feature 1 - Web-Based Application
+The inventory scanner will be implemented as a web-based application accessible from any device with an internet connection, ensuring convenience and accessibility.
+
+### Feature 2 - User Interface
+The user interface for students will empower administrators to easily track inventory changes. Through a simple QR code scanning process, students can efficiently record product checkouts by specifying the quantity taken from the available stock.
+
+### Feature 3 - Privacy Considerations
+Our system will ensure that no personally identifiable information is collected. Only aggregate data (number of items checked out) will be recorded to maintain inventory accuracy while safeguarding user privacy.
+
+### Feature 4 - Administrator Interface
+The administrator interface provides comprehensive control over the inventory management system. Administrators can create new product categories to accommodate donations of food and hygiene items. Additionally, they can update inventory counts by scanning category specific QR codes, ensuring real-time tracking of stock levels.
+
+### Feature 5 - Manual Inventory Updates
+To address any discrepancies or errors, the administrator interface includes a manual inventory update feature. This functionality enables administrators to manually adjust inventory counts, ensuring data accuracy and integrity.
+
+## Technical Requirements
+### Programming Language(s)
+- Dart
+- JavaScript
+
+### Frameworks and Libraries
+- Flutter
+
+### Database Systems
+- Firebase Realtime Database
+
+### Development Tools
+TBD
+
+## Security Aspect of Project
+- Access Control
+- User Privacy Protection
+- Secure Authentication
+
+Incorporate a section within the web app that if you want to donate, you can access the Amazon wishlist and select items from there and will automatically fill-in the destination (Name, location, box # or Amazon Locker and will be included the email address so confirmation is notified to manager)
+
+## Constraints and Assumptions
+### Constraints
+- TBD (List any constraints like budget, time, resources)
+
+### Assumptions
+- TBD (List any assumptions made during planning)
+
+## Backend
+### Technology Type
+- Technology Name
+  - Programming Language
+    - JavaScript
+  - Runtime Environment
+    - Node.js
+  - Development Framework
+    - Express
+
+### File Structure
+- .gitignore
+  - Declare what don’t need to be pushed to the GitHub repo
+- README.md
+  - Instructions for developers
+- App.js
+  - Configures and initializes the Express application, sets up middleware, initializes Firebase connection, and configures Swagger documentation for testing
+- routes.js
+  - Defines the server's routing logic, handling API requests to manage data CRUD operations and file downloads
+- server.js
+  - Launches the Express server, listening on a specific port to accept and process incoming client requests
+- app.test.js
+  - Contains 3 tests to 3 routes, based on Jest
+- jest.config.js
+  - Declare the testing environment as Node.js
+- package.json
+  - Contain all dependencies
+- package-lock.json
+  - A file automatically generated by npm (Node Package Manager) based on package.json
+- foodpantry-xxx-firebase-adminsdk-xxx
+  - The Firebase Admin SDK private key
+- dockerfile
+  - Creates docker image for the application
+
+## API Endpoints in the Backend
+1. POST /updateData/{type}/{category}/{brand}
+   - Description: Updates or creates an inventory item. Use query parameter quantity to specify the amount to add (can be negative or positive).
+   - Parameters:
+     - name: The name of the item. (path parameter)
+     - quantity: The latest quantity of the item. (query parameter)
+   - Responses:
+     - `200`: Successfully updated the inventory.
+     - `400`: Invalid input, quantity must be an integer.
+     - `500`: Server error or transaction failed.
+
+2. GET /getAllData
+   - Description: Gets all data in the database in JSON form.
+   - Parameters: No parameters required for this endpoint.
+   - Responses:
+     - `200`: Successfully retrieved all data from Firebase database.
+     - `500`: Failed to retrieve data from Firebase database.
+
+3. GET /downloadData
+   - Description: Downloads all data as an Excel file.
+   - Parameters: No parameters required for this endpoint.
+   - Responses:
+     - `200`: Successfully created, downloaded, and deleted the Excel file. The response includes the Excel file containing the structured data.
+     - `500`: An error occurred on the server, preventing the creation or download of the Excel file. This might be due to issues in data fetching from the database or file handling on the server.
+
+## Testing
+- Jest + Supertest + GitHub action
+  - Jest provides the testing framework and assertion capabilities, organizing tests and verifying outcomes.
+  - Supertest handles the simulation of HTTP requests, directly testing the API endpoints of the Express application.
+  - GitHub action runs backend tests on Ubuntu when changes are pushed or pulled to the Backend directory in the main branch.
+- Three Tests:
+  1. Test for updateData/:name API
+     - Purpose: Ensures the API updates the quantity of a specific item correctly.
+     - Process:
+       - Sends a POST request with a name (test) and quantity (1).
+       - Checks that the response status is 200 and the body contains a quantity field of
