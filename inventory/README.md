@@ -21,14 +21,6 @@ Develop a user-friendly inventory scanner to streamline the process of monitorin
 ### Secondary Goals
 TBD
 
-## User Stories
-### Myri
-#### To be completed:
-As a Food Pantry Coordinator at Trinity, I want to automate inventory updates, so that it reduces the time required from our student employees for manual tracking. I would like to be able to add how many items I’ve added to the stock and would like the student to be able to scan the QR code of the item and tell how many items were taken.
-
-#### Aspire to accomplish:
-Add a new section in the web application that will allow users to donate items by accessing the Amazon Wishlist. Users can select the items they want to donate, and the destination details (name, location, box number, or Amazon Locker) will be automatically filled in. The email address of the manager will also be included so that a confirmation can be sent.
-
 ## Functional Requirements
 ### Feature 1 - Web-Based Application
 The inventory scanner will be implemented as a web-based application accessible from any device with an internet connection, ensuring convenience and accessibility.
