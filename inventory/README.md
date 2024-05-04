@@ -1,4 +1,4 @@
-# inventory
+# inventor
 
 A new Flutter project.
 
