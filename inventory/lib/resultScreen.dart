@@ -21,6 +21,7 @@ class ResultScreen extends StatefulWidget {
 class _ResultScreenState extends State<ResultScreen> {
   int counter = 1; // Default counter value
   late String scannedCode; // Variable to store the scanned code
+  int quantity = 0;
 
   @override
   void initState() {
@@ -41,13 +42,14 @@ class _ResultScreenState extends State<ResultScreen> {
   }
 
   void delete() async {
+    quantity = -counter;
     // Change to a POST request with appropriate body or query parameters
     final response = await http.post(
       Uri.parse(
-          'http://10.252.176.91:3000/updateData/$scannedCode?quantity=$counter'),
+          'http://104.197.102.242/updateData/$scannedCode?quantity=$quantity'),
     );
     if (response.statusCode == 200) {
-      Navigator.pop(context);
+      Navigator.popUntil(context, (route) => route.isFirst);
     } else {
       // ignore: avoid_print
       print(
