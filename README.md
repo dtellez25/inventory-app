@@ -55,7 +55,7 @@ Authentication implementation: Implement Multi-Factor authentication for admin u
 
 ### Database Systems
 - Firebase Realtime Database (backend maintained in additional repository)
-- https://github.com/dtellez25/TcFoodnStuff_Inventory
+- Front-End in Flutter using Dart language: https://github.com/dtellez25/TcFoodnStuff_Inventory
   
 ### Development Tools
 - Visual Studio
