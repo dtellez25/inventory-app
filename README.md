@@ -16,34 +16,31 @@ Our project aims to develop a simple inventory management system tailored for Tr
 
 ## Objectives
 ### Primary Goal
-Develop a user-friendly inventory scanner to streamline the process of monitoring inventory levels and facilitating prompt restocking as required.
-
+Develop a user-friendly inventory scanner to simplify monitoring and restocking. 
 ### Secondary Goals
-TBD
+Incorporate a database for the login page on the admin side and add Multi-Factor Authentication for security 
 
 ## User Stories
-### Myri
-#### To be completed:
-As a Food Pantry Coordinator at Trinity, I want to automate inventory updates, so that it reduces the time required from our student employees for manual tracking. I would like to be able to add how many items I’ve added to the stock and would like the student to be able to scan the QR code of the item and tell how many items were taken.
 
-#### Aspire to accomplish:
-Add a new section in the web application that will allow users to donate items by accessing the Amazon Wishlist. Users can select the items they want to donate, and the destination details (name, location, box number, or Amazon Locker) will be automatically filled in. The email address of the manager will also be included so that a confirmation can be sent.
+## Main story: 
+As the Food Pantry Coordinator at Trinity, I want to automate how we track inventory to save time. I would like a system where I can easily add items and students can use a QR code to record items they take out [inspired from talk given by Hayley Berliner] 
 
-## Functional Requirements
-### Feature 1 - Web-Based Application
-The inventory scanner will be implemented as a web-based application accessible from any device with an internet connection, ensuring convenience and accessibility.
+## Additional User story: 
+Add a donation bottom to the app that lets users donate items through the Food Pantry Amazon Wishlist. When users pick an item to donate, the destination details like the name, location, and box number of the Food Pantry representative will automatically populate. The manager's email will be included to send a confirmation of the donation.  
 
-### Feature 2 - User Interface
-The user interface for students will empower administrators to easily track inventory changes. Through a simple QR code scanning process, students can efficiently record product checkouts by specifying the quantity taken from the available stock.
 
-### Feature 3 - Privacy Considerations
-Our system will ensure that no personally identifiable information is collected. Only aggregate data (number of items checked out) will be recorded to maintain inventory accuracy while safeguarding user privacy.
+## Feature 1: 
 
-### Feature 4 - Administrator Interface
-The administrator interface provides comprehensive control over the inventory management system. Administrators can create new product categories to accommodate donations of food and hygiene items. Additionally, they can update inventory counts by scanning category specific QR codes, ensuring real-time tracking of stock levels.
+User-end application scanner and counter: Include a button to open a QR code scanner. Users can scan the QR code of the item they want to retrieve. After scanning, they will use a counter to specify the quantity they are taking. This information will automatically update our database.  
 
-### Feature 5 - Manual Inventory Updates
-To address any discrepancies or errors, the administrator interface includes a manual inventory update feature. This functionality enables administrators to manually adjust inventory counts, ensuring data accuracy and integrity.
+## Feature 2: 
+
+Login Page for food pantry administrator & inventory section: Implement basic login page to confirm credentials of administrator to access basic inventory. This section of the application allows users to download .CSV files of the current inventory and manually update the database in case needed.  
+
+## Feature 3: 
+
+Authentication implementation: Implement Multi-Factor authentication for admin user for identity verification [ to be implemented] 
+
 
 ## Technical Requirements
 ### Programming Language(s)
@@ -52,27 +49,30 @@ To address any discrepancies or errors, the administrator interface includes a m
 
 ### Frameworks and Libraries
 - Flutter
+- HTTP library for Flutter
+- Node.js
+- Expandable_datatable for Flutter
 
 ### Database Systems
-- Firebase Realtime Database (backend maintained in aditional repository)
+- Firebase Realtime Database (backend maintained in additional repository)
 - https://github.com/dtellez25/TcFoodnStuff_Inventory
   
 ### Development Tools
-TBD
+- Visual Studio
 
 ## Security Aspect of Project
 - Access Control
 - User Privacy Protection
 - Secure Authentication
 
-Incorporate a section within the web app that if you want to donate, you can access the Amazon wishlist and select items from there and will automatically fill-in the destination (Name, location, box # or Amazon Locker and will be included the email address so confirmation is notified to manager)
 
 ## Constraints and Assumptions
 ### Constraints
 - TBD (List any constraints like budget, time, resources)
 
 ### Assumptions
-- TBD (List any assumptions made during planning)
+- There is only one administrator who needs to access the inventory page to manually update the database and check the number of items available based on the category. 
+- They have organized the food pantry room by category, such as chips, noodles, popcorn, and sanitary items.  
 
 ## Backend
 ### Technology Type
