@@ -59,6 +59,7 @@ Authentication implementation: Implement Multi-Factor authentication for admin u
   
 ### Development Tools
 - Visual Studio
+- IntelliJ IDEA
 
 ## Security Aspect of Project
 - Access Control
@@ -68,8 +69,7 @@ Authentication implementation: Implement Multi-Factor authentication for admin u
 
 ## Constraints and Assumptions
 ### Constraints
-- TBD (List any constraints like budget, time, resources)
-
+- The application should go through an iterative development process, involving testing, receiving feedback, and making revisions based on that feedback. This process helps to continuously improve and refine the app and it will require at least 6 months.  
 ### Assumptions
 - There is only one administrator who needs to access the inventory page to manually update the database and check the number of items available based on the category. 
 - They have organized the food pantry room by category, such as chips, noodles, popcorn, and sanitary items.  
