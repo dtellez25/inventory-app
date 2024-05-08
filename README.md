@@ -146,4 +146,4 @@ Authentication implementation: Implement Multi-Factor authentication for admin u
        - Checks that the response status is 200 and the body contains a quantity field of
 ## Licensing
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
