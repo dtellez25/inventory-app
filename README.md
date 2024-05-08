@@ -51,14 +51,14 @@ Authentication implementation: Implement Multi-Factor authentication for admin u
 - Flutter
 - HTTP library for Flutter
 - Node.js
-- Expandable_datatable for Flutter
+- Expandable_datatable for Flutter (MIT license)
 
 ### Database Systems
-- Firebase Realtime Database (backend maintained in additional repository)
-- Front-End in Flutter using Dart language: https://github.com/dtellez25/TcFoodnStuff_Inventory
+- Firebase Realtime Database (backend maintained in an additional repository): https://github.com/dtellez25/TcFoodnStuff_Inventory
+- Front-End in Flutter using Dart language
   
 ### Development Tools
-- Visual Studio
+- Visual Studio Code
 - IntelliJ IDEA
 
 ## Security Aspect of Project
